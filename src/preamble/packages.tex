@@ -1,0 +1,333 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PACKAGE IMPORTS FOR ENGINEERING & TECHNOLOGY THESIS
+%% Following LaTeX best practices for package loading order
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Ensure xcolor options are set even if another package loads xcolor first
+\PassOptionsToPackage{table,xcdraw}{xcolor}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ENCODING AND FONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage[utf8]{inputenc}        % Not needed: XeTeX reads UTF-8 natively
+% \usepackage[T1]{fontenc}            % Not needed with fontspec / XeTeX
+\usepackage{amsthm}                 % Theorem environments
+\usepackage{fontspec}               % Font loading (Tectonic uses XeTeX)
+\usepackage{textcomp}               % Additional text symbols
+\usepackage[nopatch=footnote]{microtype} % Improved typography and spacing
+
+% Silence known non-fatal warnings
+\usepackage{silence}
+\WarningFilter{siunitx}{Detected the "physics" package}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PAGE LAYOUT AND GEOMETRY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[a4paper,
+  left=3.5cm,      % Binding margin
+  right=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm,
+headheight=15pt]{geometry}  % Page margins and layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LANGUAGE AND LOCALIZATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english]{babel}         % Language support (change as needed)
+\usepackage{csquotes}               % Context-sensitive quotations (required for biblatex)
+\usepackage[normalem]{ulem}         % \sout{} for strikethrough text
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MATHEMATICS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}                % Enhanced mathematical typesetting
+\usepackage{mathtools}              % Extensions and fixes for amsmath
+\usepackage{bm}                     % Bold math symbols
+\usepackage{bbm}                    % Blackboard bold fonts
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% UNITS AND NUMBERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{siunitx}                % SI units and number formatting
+\sisetup{
+  output-decimal-marker = {.},
+  group-separator = {,},
+  group-minimum-digits = 4,
+  per-mode = symbol,
+  separate-uncertainty = true,
+}
+
+% Physics notation (derivatives, vectors, etc.)
+\usepackage{physics}
+
+% Use siunitx's \qty interface even when physics is loaded
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% GRAPHICS AND FIGURES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{graphicx}               % Include graphics
+\usepackage{float}                  % Improved float placement [H]
+\usepackage{subcaption}             % Subfigures and subcaptions
+\usepackage{wrapfig}                % Wrap text around figures
+\usepackage{rotating}               % Rotate figures and tables
+\usepackage{pdfpages}               % Include PDF pages
+
+% Set default graphics path
+\graphicspath{{figures/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{booktabs}               % Professional quality tables
+\usepackage{multirow}               % Multi-row cells in tables
+\usepackage{multicol}               % Multi-column cells and text
+\usepackage{longtable}              % Tables spanning multiple pages
+\usepackage{tabularx}               % Tables with adjustable column widths
+\usepackage{array}                  % Extended column definitions
+\usepackage{makecell}               % Format cells in tables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{xcolor}               % Color support
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DRAWING AND DIAGRAMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tikz}                   % Drawing and diagrams
+\usepackage{pgfplots}               % Plot data from files or functions
+\pgfplotsset{compat=1.18}           % Set compatibility version
+\usepackage{circuitikz}             % Circuit diagrams (for EE)
+
+% Common TikZ libraries
+\usetikzlibrary{
+  arrows.meta,
+  positioning,
+  shapes.geometric,
+  shapes.misc,
+  calc,
+  cd,
+  patterns,
+  decorations.markings,
+  backgrounds,
+  fit,
+  matrix,
+  shapes,
+  arrows,
+  shadows
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CODE LISTINGS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{minted}                 % Code highlighting with Pygments
+\setminted{
+  breaklines=true,
+  breakanywhere=false,
+  fontsize=\small,
+  linenos=true,
+  frame=lines,
+  framesep=2mm,
+  baselinestretch=1.2,
+  bgcolor=backcolour,
+}
+
+% Alternative: listings package (uncomment if not using minted)
+% \usepackage{listings}
+% \lstset{
+%     basicstyle=\ttfamily\small,
+%     breaklines=true,
+%     numbers=left,
+%     numberstyle=\tiny\color{codegray},
+%     keywordstyle=\color{blue},
+%     commentstyle=\color{codegreen},
+%     stringstyle=\color{codepurple},
+%     backgroundcolor=\color{backcolour},
+%     frame=single,
+%     tabsize=4,
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ALGORITHMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\SetKwInput{KwInput}{Input}
+\SetKwInput{KwOutput}{Output}
+
+% Alternative: algorithmicx package (uncomment if preferred)
+% \usepackage{algpseudocode}
+% \usepackage{algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[
+  backend=bibtex,
+  style=ieee,                     % IEEE citation style (change as needed)
+  sorting=none,                   % Sort by order of appearance
+  maxbibnames=99,
+  giveninits=true,
+  doi=true,
+  isbn=false,
+  url=true,
+]{biblatex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CROSS-REFERENCING AND LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{hyperref}               % Hyperlinks (load near end)
+\usepackage[noabbrev,capitalise]{cleveref}  % Smart cross-references (load after hyperref)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADERS AND FOOTERS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}               % Custom headers and footers
+\pagestyle{fancy}
+\fancyhf{}                          % Clear default settings
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Style for chapter pages
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER AND SECTION FORMATTING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{titlesec}               % Customize chapter/section titles
+\usepackage{titletoc}               % Customize table of contents
+
+% Chapter formatting
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}
+{\chaptertitlename\ \thechapter}
+{0pt}
+{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+
+% Reduce vertical spacing around section headings
+\titlespacing*{\section}{0pt}{0.5ex plus .1ex minus .1ex}{0.3ex}
+\titlespacing*{\subsection}{0pt}{0.3ex plus .1ex minus .1ex}{0.2ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TABLE OF CONTENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tocloft}                % Customize TOC, LOF, LOT
+\setcounter{tocdepth}{2}            % Show up to subsections in TOC
+\setcounter{secnumdepth}{3}         % Number up to subsubsections
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SPACING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{setspace}               % Line spacing control
+\onehalfspacing                     % 1.5 line spacing (change as needed)
+% \doublespacing                    % Use for double spacing if required
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LISTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{enumitem}               % Customize lists
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{leftmargin=*}
+\setlist[itemize]{label=\textbullet}
+\setlist[enumerate]{font=\bfseries}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[toc,page]{appendix}    % Appendix management
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% GLOSSARIES AND ACRONYMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[acronym,toc]{glossaries}
+\makeglossaries
+% Note: run 'makeindex -s default.ist -t default.glg -o default.gls default.glo'
+%       manually after compilation if using glossary entries
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FOOTNOTES AND ENDNOTES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[bottom]{footmisc}      % Footnote formatting
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CAPTIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% caption is already loaded by subcaption; avoid re-loading it (can trigger warnings)
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  format=plain,
+  justification=justified,
+  singlelinecheck=false,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% UTILITIES AND TOOLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{lipsum}                 % Lorem ipsum dummy text
+\usepackage{blindtext}              % More dummy text options
+\setlength{\marginparwidth}{2cm}    % Required by todonotes (avoid marginparwidth warning)
+\usepackage{todonotes}              % TODO notes in margins
+\usepackage{comment}                % Comment out blocks of text
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SPECIALIZED ENGINEERING PACKAGES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Chemical formulas and equations
+\usepackage{chemformula}            % Chemical formulas
+\usepackage{chemfig}                % Chemical structure diagrams
+
+% Electrical engineering
+% \usepackage{steinmetz}            % Phasor notation (uncomment if needed)
+
+% Control systems and block diagrams
+\usepackage{blox}                   % Block diagrams
+
+% Additional math for specific engineering domains
+\usepackage{tensor}                 % Tensor notation
+\usepackage{braket}                 % Dirac bra-ket notation
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PDF BOOKMARKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{bookmark}               % Enhanced PDF bookmarks (load last)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% END OF PACKAGE IMPORTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

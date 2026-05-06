@@ -1,0 +1,38 @@
+\documentclass[12pt]{report}
+
+% Import all packages
+\input{preamble/packages}
+
+% Import custom settings and commands (thesis metadata, colours, math, hypersetup)
+\input{preamble/settings}
+
+% Bibliography database
+\addbibresource{references.bib}
+
+% ------------------------------------------------------------------
+% Fonts
+% ------------------------------------------------------------------
+
+% Main font: Times New Roman (local copy in fonts/)
+\setmainfont{Times New Roman}[
+  Path=fonts/,
+  Extension=.ttf,
+  BoldFont=Times New Roman Bold,
+  ItalicFont=Times New Roman Italic,
+  BoldItalicFont=Times New Roman Bold Italic,
+]
+
+% Khmer font (from project fonts/ directory)
+\newfontfamily\khmerfont{Khmer OS Muol Light Regular}[
+  Path=fonts/,
+  Extension=.ttf,
+]
+
+% ------------------------------------------------------------------
+% Paragraph layout
+% ------------------------------------------------------------------
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1\baselineskip}
+
+\begin{document}

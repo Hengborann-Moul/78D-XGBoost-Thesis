@@ -1,0 +1,95 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 2: LITERATURE REVIEW
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Literature Review}
+\label{ch:literature-review}
+
+\textbf{\Large Introduction to DAiSEE}
+
+The DAiSEE dataset, introduced by Gupta et al., is a pioneer large-scale, multi-label video classification dataset designed to recognize user affective states in "in-the-wild" e-learning environments\cite{Gupta2016DAiSEETU}. It comprises 9,068 video snippets captured from 112 subjects (predominantly of Asian descent)\cite{Gupta2016DAiSEETU}. The dataset focuses on four affective states: Engagement, Frustration, Confusion, and Boredom, annotated at four ordinal levels: Very Low, Low, High, and Very High\cite{Gupta2016DAiSEETU}. It is widely used as a benchmark because it captures real-world challenges such as variable lighting, face occlusions, and non-frontal head poses\cite{Gupta2016DAiSEETU}.
+
+%%%%%%%%%%%Initial Benchmarking and Standard Deep Learning Models%%%%%%%%%%%%%%
+\section{Initial Benchmarking and Standard Deep Learning Models}
+\label{sec:initial-benchmarking-and-standard-deep-learning-models}
+
+The creators of DAiSEE established the initial baselines using various video classification methods.
+\begin{itemize}
+  \item{\textbf{Performance:} In the original study, \textbf{LRCN (Long-Term Recurrent Convolutional Network)} outperformed other models like C3D and InceptionNet, achieving a top-1 accuracy of \textbf{57.9\%} for engagement detection\cite{Gupta2016DAiSEETU}.}
+  \item{\textbf{Binary Classification:} When simplified to a binary classification task (Engaged vs. Not-Engaged), the accuracy of LRCN jumped significantly to \textbf{94.6\%}, highlighting the difficulty of distinguishing between the fine-grained ordinal levels (e.g., Low vs. Very Low) compared to a simple binary state\cite{Gupta2016DAiSEETU}.}
+\end{itemize}
+
+%%%%%%%%%%Spatio-Temporal and Hybrid Architectures%%%%%%%%%%%%%
+\section{Spatio-Temporal and Hybrid Architectures}
+\label{sec:spatio-temporal-and-hybrid-architectures}
+
+A significant portion of the literature focuses on hybrid models that combine Convolutional Neural Networks (CNNs) for spatial feature extraction with Recurrent Neural Networks (RNNs) for temporal analysis.
+\begin{itemize}
+  \item{\textbf{EfficientNet + RNNs:} Mortezapour Shiri et al. proposed hybrid end-to-end models combining \textbf{EfficientNetV2-L} with various RNNs. They tested GRU, Bi-GRU, LSTM, and Bi-LSTM. Their \textbf{EfficientNetV2-L + LSTM} model achieved the highest accuracy in their experiments at \textbf{62.11\%}. This outperformed the original LRCN benchmark and other models like DFSTN (58.84\%) and ResNet+LSTM (61.15\%) \cite{Shiri2024DetectionOS}.}
+  \item{\textbf{ResNet + TCN:} Several studies cited within the literature, such as Abedi and Khan, utilized ResNet combined with \textbf{Temporal Convolutional Networks (TCN)}, achieving accuracies around \textbf{63.9\%} \cite{Shiri2024DetectionOS} \cite{Malekshahi2024AGM}.}
+  \item{\textbf{CNN + LSTM (High Accuracy):} Ismaeel et al. proposed a hybrid \textbf{CNN-LSTM} model using a VGG16 backbone for spatial features and a 2-layer LSTM for temporal patterns. In their experiments, this model achieved a notably high accuracy of \textbf{97.0\%} on DAiSEE \cite{Ismaeel2025DetectingSE}.}
+\end{itemize}
+
+%%%%%%%%%%%Attention-Based and Transformer Models%%%%%%%%%%%%%%
+\section{Attention-Based and Transformer Models}
+\label{sec:attention-based-and-transformer-models}
+
+Recent research has integrated attention mechanisms to focus on salient features in the video frames.
+\begin{itemize}
+  \item{\textbf{STAF-Net:} Ismaeel et al. introduced the \textbf{Spatio-Temporal Attention Fusion Network (STAF-Net)}. This architecture uses a ResNet-18 backbone and a Transformer encoder to capture long-range temporal dependencies. It employs a spatio-temporal attention pooling mechanism to focus on informative frames. STAF-Net reported an accuracy of \textbf{98.3\%} on DAiSEE, significantly outperforming traditional CNN and LSTM baselines in their comparative analysis \cite{2025STAFNetAS}.}
+  \item{\textbf{EfficientNetB7 + Attention:} Selim et al. (cited in) utilized EfficientNetB7 combined with TCN, LSTM, and Bi-LSTM, achieving accuracies ranging from \textbf{64.67\%} to \textbf{67.48\%} \cite{Malekshahi2024AGM}.}
+\end{itemize}
+
+%%%%%%%%%%Non-Sequential Approaches (Bag of States)%%%%%%%%%%
+\section{Non-Sequential Approaches (Bag of States)}
+\label{sec:non-sequential-approaches}
+
+Challenging the necessity of sequential modeling, Abedi et al. proposed the \textbf{Bag of States (BoS)} framework.
+\begin{itemize}
+  \item{\textbf{Concept:} They questioned whether the order of behavioral states (e.g., blinking, head pose) matters for engagement, hypothesizing that the frequency of these states is more critical \cite{Abedi2023BagOS}.}
+  \item{\textbf{Performance:} By treating video samples as a "bag" of affective and behavioral states (extracted via OpenFace and EmoFAN), their ordinal-output BoS model achieved an accuracy of \textbf{66.58\%}, surpassing several complex deep learning sequential models like C3D and I3D \cite{Abedi2023BagOS}.}
+\end{itemize}
+
+%%%%%%%%%%%%% Handling Class Imbalance %%%%%%%%%%%%%%
+\section{Handling Class Imbalance}
+\label{sec:handling-class-imbalance}
+
+A major challenge with DAiSEE is its high class imbalance; for instance, "very low" engagement represents only 0.7\% of the data \cite{Santoni2023ConvolutionalNN}.
+\begin{itemize}
+  \item{\textbf{Data-Level Solutions:} Santoni et al. addressed this by using the \textbf{SMOTE (Synthetic Minority Over-sampling Technique)} algorithm to balance the dataset. They employed a CNN for feature extraction and \textbf{SVD (Singular Value Decomposition)} for dimensionality reduction. Their SVD-CNN model with balanced data achieved an accuracy of \textbf{77.97\%}, demonstrating the importance of addressing data skew \cite{Santoni2023ConvolutionalNN}.}
+  \item{\textbf{Adaptive Labeling:} Malekshahi et al. proposed an adaptive policy to merge labels (e.g., combining 'Engagement' and 'Confusion' states) to create a more robust two-level labeling scheme relevant to education. Using a \textbf{KNN classifier} on this adapted data, they achieved an accuracy of \textbf{68.57\%}} \cite{Malekshahi2024AGM}.
+\end{itemize}
+
+%%%%%%%%%%%% Limitations and Critiques of DAiSEE %%%%%%%%%%%%%
+\section{Limitations and Critiques of DAiSEE}
+\label{sec:limitations-and-critiques-of-daisee}
+
+While DAiSEE is a standard benchmark, newer literature highlights its limitations:
+\begin{itemize}
+  \item{\textbf{Demographic Bias:} The dataset predominantly features subjects of Asian/Indian descent (Malay ethnicity), limiting its generalizability to Western or diverse global populations \cite{MarquezCarpintero2025DIPSERAD}.}
+  \item{\textbf{Short Duration:} The video clips are only 10 seconds long, which some researchers argue is insufficient for capturing complex engagement dynamics compared to longer sessions \cite{MarquezCarpintero2025DIPSERAD}.}
+  \item{\textbf{Lack of Multimodality:} DAiSEE relies on video, whereas newer datasets (like DIPSER) are beginning to incorporate smartwatch sensors (heart rate, gyroscope) to correlate physiological data with visual attention \cite{MarquezCarpintero2025DIPSERAD}.}
+\end{itemize}
+
+\textbf{\large{Summary of Reported Accuracies on DAiSEE}}
+
+\begin{table}[h!]
+  \centering
+  \caption{Summary of reported accuracies on DAiSEE.}
+  \label{tab:daisee-accuracies}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{tabular}{@{}m{4.1cm}m{7.25cm}m{2.0cm}m{1.5cm}@{}}
+    \toprule
+    \textbf{Model} & \textbf{Approach} & \textbf{Accuracy Reported} & \textbf{Source} \\
+    \midrule
+    \textbf{STAF-Net} & ResNet-18 + Transformer + Attention & \textbf{98.3\%} & \cite{2025STAFNetAS} \\
+    \textbf{CNN-LSTM} & VGG16 + LSTM & \textbf{97.0\%} & \cite{Ismaeel2025DetectingSE} \\
+    \textbf{SVD-CNN} & CNN + SVD + SMOTE (balanced data) & \textbf{77.97\%} & \cite{Santoni2023} \\
+    \textbf{KNN (Adaptive)} & Adaptive labeling + KNN & \textbf{68.57\%} & \cite{Malekshahi2024AGM} \\
+    \textbf{EfficientNetB7+LSTM} & Hybrid spatio-temporal & \textbf{67.48\%} & \cite{Malekshahi2024AGM} \\
+    \textbf{BoS} & Bag of states (non-sequential) & \textbf{66.58\%} & \cite{Abedi2023BagOS} \\
+    \textbf{EfficientNetV2-L+LSTM} & Hybrid spatio-temporal & \textbf{62.11\%} & \cite{Shiri2024DetectionOS} \\
+    \textbf{LRCN} & Baseline benchmark (temporal) & \textbf{57.90\%} & \cite{Gupta2016DAiSEETU} \\
+    \bottomrule
+  \end{tabular}
+\end{table}

@@ -1,0 +1,120 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CUSTOM SETTINGS AND COMMANDS
+%% Define your custom commands, theorems, and configurations here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% THESIS METADATA
+%% Modify these fields according to your thesis
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\thesisTitle}{Advancing Attention Detection System Through Computer Vision And Deep Learning}
+\newcommand{\thesisSubtitle}{}
+\newcommand{\authorName}{MOUL Hengborann}
+\newcommand{\phoneNumber}{011 836 711}
+\newcommand{\address}{Bral, Tani, Angkor Chey\\Kampot Province}
+\newcommand{\supervisorName}{Dr. Sothea HAS}
+\newcommand{\cosupervisorName}{Dr. PHAUK Sokkhey} % Comment out if not needed
+\newcommand{\degreeTitle}{Master of Engineering in Data Science}
+\newcommand{\universityName}{Institute of Technology of Cambodia}
+\newcommand{\departmentName}{Department of Applied Mathematics and Statistics}
+\newcommand{\facultyName}{Faculty of Engineering}
+\newcommand{\submissionDate}{\today}
+\newcommand{\thesisYear}{2026}
+
+% Set standard LaTeX title block fields
+\title{\thesisTitle}
+\author{\authorName}
+\date{\submissionDate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PDF METADATA  (sets properties shown in PDF reader)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+  pdftitle={\thesisTitle},
+  pdfauthor={\authorName},
+  pdfsubject={\degreeTitle},
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!40!black,
+  urlcolor=blue!60!black,
+  linktoc=all,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CUSTOM COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Move all user-facing colour definitions here so they stay in one place.
+%%  (Back-end colours used only inside packages.tex can stay there.)
+
+% Primary brand / identity colours
+\definecolor{itcBlue}{HTML}{006FC0}      % ITC identity blue
+\colorlet{itcTeal}{itcBlue}              % Alias for backward compatibility
+\definecolor{headerblue}{RGB}{70,130,180} % Steel blue — used in chapter headings
+
+% Semantic colours
+\definecolor{accentgreen}{RGB}{60,179,113}
+\definecolor{accentorange}{RGB}{255,140,0}
+\definecolor{accentred}{RGB}{220,20,60}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% MATH NOTATION  (common shortcuts, add your own)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Blackboard bold
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% Linear algebra
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\T}{\mathsf{T}}          % transpose
+
+% Statistics / ML
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\softmax}{\mathrm{softmax}}
+
+% Domain-specific
+\newcommand{\loss}{\mathcal{L}}
+\newcommand{\dataset}{\mathcal{D}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% THEOREM ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{observation}[theorem]{Observation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% FLOAT & CAPTION SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Relax float placement (less strict than default)
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% END OF CUSTOM SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

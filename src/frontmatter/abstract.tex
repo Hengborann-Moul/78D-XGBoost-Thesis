@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Abstract}
+\thispagestyle{plain}
+\addcontentsline{toc}{chapter}{Abstract}
+
+% Brief context and background (1-2 sentences)
+This research addresses the challenge of real-time attention detection in online and hybrid learning environments. With the increasing importance of remote education, there is a critical need for automated, scalable, and unbiased methods to monitor student engagement during digital instruction.
+
+% Research objectives and methods (2-3 sentences)
+The primary objective of this research is to develop a lightweight deep learning system capable of detecting multiple affective states indicative of learner attention on resource-constrained devices. To achieve this, we propose a spatio-temporal neural architecture that leverages a TimeDistributed MobileNetV3 backbone integrated with Long Short-Term Memory (LSTM) networks for temporal sequence modeling. The methodology involves training on the DAiSEE dataset using a 70/15/15 train/validation/test split, with multiple independent binary classification heads predicting four key dimensions - boredom, engagement, confusion, and frustration, optimized using the Adam optimizer and binary cross-entropy loss.
+
+% Key contributions and results (2-3 sentences)
+The main contributions of this work include: (1) a computationally efficient spatio-temporal architecture suitable for deployment on low-end devices such as the Raspberry Pi; (2) simultaneous, multi-dimensional affective-state classification achieving accuracies of \sout{95.18\%} (engagement), \sout{95.52\%} (frustration), \sout{91.20\%} (confusion), and \sout{78.87\%} (boredom); and (3) improved classification accuracy over existing baseline methods, despite moderate macro-F1 and AUC scores due to dataset class imbalance. Experimental results show that the proposed approach achieves higher accuracy than state-of-the-art methods while maintaining real-time inference on resource-limited hardware.
+
+% Implications and applications (1-2 sentences)
+These findings have significant implications for adaptive learning systems and automated pedagogical interventions and provide a foundation for scalable student-attention monitoring in large-scale digital classrooms. The proposed framework is applicable to real-world educational technology platforms that require immediate detection of disengagement to enable timely instructional support.
+
+\noindent\textbf{Keywords:} \textit{Attention Detection, Student Engagement, Computer Vision, Deep Learning, DAiSEE}
+
+\clearpage

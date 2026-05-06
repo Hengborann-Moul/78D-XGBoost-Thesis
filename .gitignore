@@ -1,0 +1,44 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+*.run.xml
+*.bcf
+
+# PDF output
+*.pdf
+!src/**/*.pdf
+
+# Tectonic
+_build/
+
+# macOS
+.DS_Store
+
+# Editors
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
