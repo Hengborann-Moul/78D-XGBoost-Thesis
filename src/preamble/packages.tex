@@ -109,6 +109,7 @@ headheight=15pt]{geometry}  % Page margins and layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{tikz}                   % Drawing and diagrams
+\usepackage{tikzpagenodes}           % Page text area nodes for placement
 \usepackage{pgfplots}               % Plot data from files or functions
 \pgfplotsset{compat=1.18}           % Set compatibility version
 \usepackage{circuitikz}             % Circuit diagrams (for EE)
@@ -247,14 +248,16 @@ headheight=15pt]{geometry}  % Page margins and layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{setspace}               % Line spacing control
-\onehalfspacing                     % 1.5 line spacing (change as needed)
-% \doublespacing                    % Use for double spacing if required
+% \singlespacing                       % Single line height (default)
+\onehalfspacing                    % 1.5 line spacing
+% \doublespacing                     % Double spacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LISTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{enumitem}               % Customize lists
+\setlist{topsep=0pt, partopsep=0pt, itemsep=2pt, parsep=0pt}
 \setlist[itemize]{leftmargin=*}
 \setlist[enumerate]{leftmargin=*}
 \setlist[itemize]{label=\textbullet}

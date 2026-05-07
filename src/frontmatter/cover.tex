@@ -7,29 +7,31 @@
   %\vspace*{1cm}
 
   % University logo (uncomment and add your logo)
-  % \includegraphics[width=0.3\textwidth]{figures/university_logo.pdf}\\[1cm]
+  \includegraphics[width=0.3\textwidth]{figures/itc_logo.png}\\
 
-  {\Large \universityName}\\[0.5cm]
-  {\large \facultyName}\\[0.3cm]
-  {\large \departmentName}\\[2cm]
+  {\color{itcTeal}\khmerfont\Large \universityNameKH}\\[0.25cm]
+  {\Large \MakeUppercase{\universityName}}\\[0.5cm]
+  {\Large \facultyName}\\
+  {\Large \departmentName}\\[1.0cm]
 
   % Title
-  {\huge \bfseries \thesisTitle}\\[0.5cm]
-  \ifx\thesisSubtitle\empty
+  {\setstretch{1}\color{itcTeal}\huge\bfseries\itshape\enquote{\thesisTitle}\par}
+  \vspace{0.5cm}
+  \if\relax\thesisSubtitle\relax
   \else
-  {\Large \thesisSubtitle}\\[1cm]
+  {\Large \thesisSubtitle}\\[0.5cm]
   \fi
 
-  \vspace{1.5cm}
+  \vfill
 
   % Author
-  {\Large \textbf{by}}\\[0.5cm]
-  {\Large \authorName}\\[2cm]
+  {\Large \MakeUppercase{A Thesis submitted by}}\\
+  {\Large \textbf \authorName}\\
 
   % Thesis type
   \vfill
   {\large A thesis submitted in partial fulfillment of the\\
-  requirements for the degree of}\\[0.5cm]
+  requirements for the degree of}\\
   {\Large \bfseries \degreeTitle}\\[2cm]
 
   % Supervisors
