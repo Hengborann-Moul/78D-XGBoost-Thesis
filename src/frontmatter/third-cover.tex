@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TITLE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+  %\vspace*{1cm}
+
+  % University and MOEYE logo
+  \begin{tikzpicture}[overlay,remember picture]
+    \node[anchor=north west] at (current page text area.north west) {
+      \includegraphics[width=2.5cm]{figures/MOEYE.png}
+    };
+  \end{tikzpicture}
+  \begin{tikzpicture}[overlay,remember picture]
+    \node[anchor=north east] at ([yshift=-0.5cm] current page text area.north east) {
+        \includegraphics[width=2.75cm]{figures/itc_logo.png}
+    };
+  \end{tikzpicture}
+  % Background Seal
+  \begin{tikzpicture}[overlay,remember picture]
+    \node[anchor=center] at (current page text area.center) {
+      \includegraphics[width=14cm]{figures/LogoITC Blur.pdf}
+    };
+  \end{tikzpicture}
+
+  \begin{center}
+	{\Large \MakeUppercase{\textbf{Ministry of Education,}}}\\[0.5cm]
+	{\Large \MakeUppercase{\textbf{Youth and Sport}}}\\[0.5cm]
+	{\large \MakeUppercase{\textbf{\universityName}}}\\[0.5cm]
+
+	{\large \MakeUppercase{\textbf{Master's Thesis}}\\[0.5cm]
+	\textbf{of Mr. MOUL Hengborann}}\\[1cm]
+
+	{\normalsize \textbf{Defense Date: July 24, 2026}}\\[1cm]
+
+	{\Large \MakeUppercase{\textbf{permission to defend the thesis}}}\\[1.5cm]
+
+	{\large \textbf{Director of Institute: \underline{\hspace{5cm}}}}\\[1cm]
+	{\large \textbf{Phnom Penh, \hspace{5cm}, 2026}}
+  \end{center}
+
+  % Title
+  \begin{tabbing}
+  \textbf{a} \hspace{2.5cm} \= \textbf{b} \kill
+  {\large \textbf{Thesis's title: }} \>  {\large \textbf{\parbox[t]{13cm}{\thesisTitle}}}\\
+  \end{tabbing}
+
+  % TODO: Enable Title
+  % \begin{comment}
+  % \if\relax\thesisSubtitle\relax
+  % \else
+  % {\Large \thesisSubtitle}\\[0.5cm]
+  % \fi
+  % \end{comment}
+
+  % Host Institution
+  {\large \textbf{Host Institution: \hostInstitution}}\\[0.5cm]
+  % Director of Graduate School
+  {\large \textbf{Director of Graduate School: \directorName \underline{\hspace{1.5cm}}}}\\
+  % Supervisors
+  \begin{tabbing}
+  \textbf{Abbreviation} \hspace{1cm} \= \textbf{Full Form} \kill
+  {\large\textbf{Supervisors: }} \>  {\large\textbf{\supervisorName \underline{\hspace{5cm}}}}\\[0.5cm]
+  \>  {\large\textbf{\cosupervisorName \underline{\hspace{5cm}}}}\\[0.5cm]
+  \end{tabbing}
+  % Date
+  \centering
+  {\large \submissionDate}
+
+\end{titlepage}
+
+% Reset page numbering
+\clearpage
